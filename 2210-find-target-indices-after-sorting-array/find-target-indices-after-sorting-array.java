@@ -1,15 +1,19 @@
 import java.util.*;
 class Solution {
-    public List<Integer> targetIndices(int[] arr, int target) {
-        Arrays.sort(arr);
-        List<Integer> li = new ArrayList<>();
-        int i=0;
-        while(i<arr.length && arr[i]<=target){
-            if(arr[i]==target){
-                li.add(i);
+    public List<Integer> targetIndices(int[] nums, int target) {
+        ArrayList<Integer> ls = new ArrayList<>();
+        Arrays.sort(nums);
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]<=target){
+                if(nums[i]==target){
+                    ls.add(i);
+                }
             }
-            i++;
+            else{
+                break;
+            }
+            
         }
-        return li;
+        return ls;
     }
 }
