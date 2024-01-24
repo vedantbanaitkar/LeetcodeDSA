@@ -7,6 +7,9 @@ class Solution {
             if(arr[i]==target){
                 li.add(i);
             }
+            if(arr[i]>target){
+                break;
+            }
         }
         return li;
     }
