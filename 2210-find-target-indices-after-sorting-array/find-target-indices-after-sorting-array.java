@@ -3,13 +3,12 @@ class Solution {
     public List<Integer> targetIndices(int[] arr, int target) {
         Arrays.sort(arr);
         List<Integer> li = new ArrayList<>();
-        for(int i=0; i<arr.length; i++){
+        int i=0;
+        while(i<arr.length && arr[i]<=target){
             if(arr[i]==target){
                 li.add(i);
             }
-            if(arr[i]>target){
-                break;
-            }
+            i++;
         }
         return li;
     }
