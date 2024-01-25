@@ -2,14 +2,14 @@ class Solution {
     public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
         int c=0;
         int rk = 0;
-        switch(ruleKey){
-            case "color":
+        switch(ruleKey.charAt(0)){
+            case 'c':
                 rk=1;
                 break;
-            case "type":
+            case 't':
                 rk=0;
                 break;
-            case "name":
+            case 'n':
                 rk=2;
                 break;
             default:
