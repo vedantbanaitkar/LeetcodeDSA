@@ -8,9 +8,11 @@ class Solution {
             if(ch==' '){
                 c++;
             }
-            if(c<=k){
-                s1.append(ch);
+            if(c==k+1){
+                return s1.toString();
+                
             }
+            s1.append(ch);
             i++;
         }
         return s1.toString();
