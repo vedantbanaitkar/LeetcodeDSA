@@ -12,11 +12,9 @@ class Solution {
             case 'n':
                 rk=2;
                 break;
-            default:
-                break;
         }
-        for(int i=0; i<items.size(); i++){
-            if(items.get(i).get(rk).equals(ruleValue)){
+         for(List<String> item : items){
+            if(item.get(rk).equals(ruleValue)){
                 c++;
             }
         }
