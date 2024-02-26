@@ -4,11 +4,9 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        li = s.split(" ")
-        reversed_words = []
-        for word in li:
-            reversed_words.append(word[::-1])
-
-        return " ".join(reversed_words)
+        myList = s.split(" ")
+        for i in range(len(myList)):
+            myList[i] = myList[i][::-1]
+        return " ".join(myList)
 
         
