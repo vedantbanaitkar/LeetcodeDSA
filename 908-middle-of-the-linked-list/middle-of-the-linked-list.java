@@ -9,27 +9,17 @@
  * }
  */
 class Solution {
-    public static int n(ListNode head){
-        int k = 0;
-        ListNode curr = head;
-        while(curr!=null){
-            curr=curr.next;
-            k++;
-        }
-        return k;
-    }
+    
     public ListNode middleNode(ListNode head) {
-        int l = n(head);
-        l = (l/2)+1;
-        ListNode curr = head;
-        int k = 1;
-        while(curr!=null){
-            if(k==l){
-                return curr;
-            }
-            curr=curr.next;
-            k++;
+        if(head==null  || head.next==null){
+            return head;
         }
-        return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast!=null  && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }
