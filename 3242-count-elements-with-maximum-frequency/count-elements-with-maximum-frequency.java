@@ -1,31 +1,28 @@
 class Solution {
-    public int maxFrequencyElements(int[] arr) {
-        int l = arr.length;
-        int max = 0;
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]>max){
-                max = arr[i];
+    public int maxFrequencyElements(int[] nums) {
+      int maxNum = Integer.MIN_VALUE;
+      for(int num:nums){
+         if(num>maxNum) maxNum = num;
+      }
+       
+       int arr[] = new int[maxNum+1];
+       for(int num2:nums){
+           arr[num2]++;
+       }
+
+        int maxFrequency = 0;
+        for (int freq : arr) {
+            if (freq > maxFrequency) {
+                maxFrequency = freq;
             }
         }
-        if(l==1){
-            return 1;
-        }
-        int[] hash = new int[max + 1]; 
-        for(int i=0; i<l; i++){
-            hash[arr[i]]++;
-        }
-        int s=0;
-        int c=0;
-        for(int i=0; i<hash.length; i++){
-            if(c<hash[i]){
-                c=hash[i];
+
+         int countMaxFrequency = 0;
+        for (int freq : arr) {
+            if (freq == maxFrequency) {
+                countMaxFrequency++;
             }
         }
-        for(int i=0; i<hash.length; i++){
-            if(hash[i]==c){
-                s+=c;
-            }
-        }
-        return s;
-    }
+    return maxFrequency*countMaxFrequency;
+}
 }
