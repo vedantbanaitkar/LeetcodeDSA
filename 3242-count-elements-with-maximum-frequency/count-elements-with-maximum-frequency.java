@@ -1,10 +1,11 @@
 class Solution {
     public int maxFrequencyElements(int[] arr) {
         int l = arr.length;
+        Arrays.sort(arr);
         if(l==1){
             return 1;
         }
-        int[] hash = new int[101];
+        int[] hash = new int[arr[l-1]+1];
         for(int i=0; i<l; i++){
             hash[arr[i]]++;
         }
