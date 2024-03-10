@@ -12,19 +12,24 @@
  import java.util.*;
 public class Solution {
     public ListNode getIntersectionNode(ListNode head1, ListNode head2) {
-        ListNode temp = head1;
-        HashSet<ListNode> hm = new HashSet<>();
-        while(temp!=null){
-            hm.add(temp);
-            temp = temp.next;
+        if(head1==null || head2==null){
+            return head1;
         }
-        temp = head2;
-        while(temp!=null){
-            if(hm.contains(temp)){
-                return temp;
+        ListNode t1 = head1;
+        ListNode t2 = head2;
+        while(t1!=t2){
+            t1 = t1.next;
+            t2 = t2.next;
+            if(t1==t2){
+                return t1;
             }
-            temp = temp.next;
+            if(t1==null){
+                t1 = head2;
+            }
+            if(t2==null){
+                t2 = head1;
+            }
         }
-        return null;
+        return t1;
     }
 }
