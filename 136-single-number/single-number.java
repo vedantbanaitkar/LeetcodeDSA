@@ -1,18 +1,22 @@
 import java.util.*;
 class Solution {
-    public static int singleNumber(int[] arr) {
-        Arrays.sort(arr);
-        int l=arr.length;
-        int i=0; 
-        while(i<l-1){
-            if(arr[i]!=arr[i+1]){
-                return arr[i];
+    public int singleNumber(int[] arr) {
+        HashSet<Integer> s = new HashSet<>();
+        int n = arr.length;
+        for(int i=0; i<n; i++){
+            int e = arr[i];
+            if(s.contains(e)){
+                s.remove(e);
             }
-            i+=2;
+            else{
+                s.add(e);
+            }
         }
-        if(l%2!=0){
-            return arr[l-1];
+        int k = 0;
+        for(int num: s){
+            k = num;
         }
-        return -1;
+
+        return k;
     }
 }
